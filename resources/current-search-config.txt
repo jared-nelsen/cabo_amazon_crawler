@@ -1,0 +1,3 @@
+ski,ski+gear,skis,ski+apparel,skiing
+snowboard,snowboards,snowboard+gear,snowboarding,snowboarding, snowboard+apparel
+ski+snowboard+accessories,ski+tools,snowboard+tools,snowboard+equipment

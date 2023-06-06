@@ -1,0 +1,27 @@
+version: '3'
+services:
+  cabo-db:
+    container_name: cabo-db
+    image: postgres
+    restart: always
+    ports:
+    - "5432:5432"
+    environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=MY_DATABASE_PASSWORD
+    - POSTGRES_DB=cabo_db
+    volumes:
+      - ~/Projects/cabo_affinitas_data/test_db:/var/lib/postgresql/data
+  flyway:
+    image: flyway/flyway
+    command: -url=jdbc:postgresql://cabo-db:5432/cabo_db -user=postgres -password=MY_DATABASE_PASSWORD -connectRetries=10 migrate info
+    volumes:
+        - ./sql:/flyway/sql
+    environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=MY_DATABASE_PASSWORD
+    - POSTGRES_DB=cabo_db
+    links:
+        - cabo-db
+    depends_on:
+        - cabo-db
