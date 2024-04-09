@@ -9,12 +9,12 @@
   (when (:disable-cookies request)
     (.disableCookieManagement builder)))
 
-(def scrapeDoAPIToken "MY_SCRAPE_DO_API_TOKEN")
+(def scrapeDoAPIToken "")
 
 (defn formRequestURL
   [url]
   (let [encodedURL (java.net.URLEncoder/encode url)]
-    (format "http://api.scrape.do?token=%s&url=%s&geoCode=us" scrapeDoAPIToken encodedURL)))
+    (format "http://api.scrape.do?token=%s&url=%s" scrapeDoAPIToken encodedURL)))
 
 (defn httpGET
   [url]
