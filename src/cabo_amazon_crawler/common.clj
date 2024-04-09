@@ -41,7 +41,8 @@
 (defn populateSearchPageQueue
   "Populates the search page queue with the given links"
   [links]
-  (let [populatedQueue (into (clojure.lang.PersistentQueue/EMPTY) links)]
+  (let [populatedQueue (into #_{:clj-kondo/ignore [:java-static-field-call]}
+                             (clojure.lang.PersistentQueue/EMPTY) links)]
     (reset! searchPageLinkMapQueue populatedQueue)))
 
 ;; --------------------------------------------------------------------------
