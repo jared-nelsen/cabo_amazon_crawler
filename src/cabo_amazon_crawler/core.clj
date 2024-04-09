@@ -43,7 +43,7 @@
   "Starts the Cabo Crawler.
    - Starts the product page crawler on 1 thread.
    - Starts N product page processors on remaining available threads."
-  [& args] 
+  [& _] 
   (println "\nCabo Amazon Crawler started...\n")
   (crawl)
   (println "\n\nCabo Crawler finished!\n"))
