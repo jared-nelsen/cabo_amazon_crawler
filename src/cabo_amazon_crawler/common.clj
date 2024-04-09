@@ -23,7 +23,7 @@
 ;; Determines if data will actually be inserted into the database
 (def insertingData false)
 ;; Determings if ASINs are going to be read in at start time
-(def loadPriorASINs true)
+(def loadPriorASINs false)
 ;; The queue of amazon product page links that are to be crawled
 ;;    Populated by the page crawler processors
 ;;    Consumed by the product crawling processesors
@@ -55,7 +55,7 @@
     (let [indexOfBeginIdentifier (strng/index-of link "/dp/B0")
           indexOfEndOfIdentifier (+ 14 indexOfBeginIdentifier)]
       (subs link 0 indexOfEndOfIdentifier))
-    (catch Exception e
+    (catch Exception _
       "")))
 
 (defn isAPhysicalProduct

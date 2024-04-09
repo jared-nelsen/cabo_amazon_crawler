@@ -82,7 +82,7 @@
         (crawlSearchResultsPage searchTermLink searchTerm category)))))
 
 (defn processSearchPageLinks 
-  [threadIndex]
+  [_]
   (while true
     (dequeueSearchPageLink)))
 

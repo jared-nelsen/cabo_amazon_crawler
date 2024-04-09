@@ -80,7 +80,7 @@
 
 (defn processProductLinks
   "Processes product links in a loop by calling dequeue link repeatedly."
-  [threadIndex]
+  [_]
   (while true
     (dequeueProductLinkMap)))
 

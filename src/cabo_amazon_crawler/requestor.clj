@@ -20,7 +20,7 @@
   [url]
   (try
     (http/get (formRequestURL url) {:http-builder-fns [cookie-disabler] :disable-cookies true})
-    (catch Exception e 
+    (catch Exception _
       {:hitException true})))
 
 (defn httpGETImage
@@ -29,5 +29,5 @@
     (http/get (formRequestURL url) {:as :byte-array
                                     :http-builder-fns [cookie-disabler]
                                     :disable-cookies true})
-    (catch Exception e
+    (catch Exception _
       {:hitException true})))
